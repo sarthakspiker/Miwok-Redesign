@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.miwok_redesign;
 
 import static java.sql.Types.NULL;
 

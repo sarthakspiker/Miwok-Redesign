@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.miwok_redesign;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

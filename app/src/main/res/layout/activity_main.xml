@@ -14,21 +14,21 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.example.android.miwok.MainActivity">
+    tools:context="com.example.android.miwok_redesign.MainActivity">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabBackground="@color/primary_color"
         app:tabIndicatorColor="@android:color/white"
         app:tabSelectedTextColor="@android:color/white"
-        app:tabTextColor="@color/tab_text_color"
-        app:tabBackground="@color/primary_color" />
+        app:tabTextColor="@color/tab_text_color" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

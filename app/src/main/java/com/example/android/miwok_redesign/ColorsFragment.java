@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.miwok_redesign;
 
 
 import android.content.Context;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FamilyFragment extends Fragment {
+public class ColorsFragment extends Fragment {
     private MediaPlayer mediaPlayer = null;
     private AudioManager audioManager;
 
@@ -29,8 +29,7 @@ public class FamilyFragment extends Fragment {
             }else if (focusChange == AudioManager.AUDIOFOCUS_GAIN){
                 mediaPlayer.start();
             }else if (focusChange == AudioManager.AUDIOFOCUS_LOSS){
-                mediaPlayer.release();
-                mediaPlayer = null;
+                releaseMediaPlayer();
             }
         }
     };
@@ -42,7 +41,7 @@ public class FamilyFragment extends Fragment {
         }
     };
 
-    public FamilyFragment() {
+    public ColorsFragment() {
         // Required empty public constructor
     }
 
@@ -51,22 +50,19 @@ public class FamilyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.word_list, container, false);
-
         audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
         final ArrayList<Word> words = new ArrayList<>();
-        words.add(new Word("father","epe",R.drawable.family_father,R.raw.family_father));
-        words.add(new Word("mother","eta",R.drawable.family_mother,R.raw.family_mother));
-        words.add(new Word("son","angsi",R.drawable.family_son,R.raw.family_son));
-        words.add(new Word("daughter","tune",R.drawable.family_daughter,R.raw.family_daughter));
-        words.add(new Word("older brother","taachi",R.drawable.family_older_brother,R.raw.family_older_brother));
-        words.add(new Word("younger brother","chalitti",R.drawable.family_younger_brother,R.raw.family_younger_brother));
-        words.add(new Word("older sister","tete",R.drawable.family_older_sister,R.raw.family_older_sister));
-        words.add(new Word("younger sister","kolliti",R.drawable.family_younger_sister,R.raw.family_younger_sister));
-        words.add(new Word("grandmother","ama",R.drawable.family_grandmother,R.raw.family_grandmother));
-        words.add(new Word("grandfather","paapa",R.drawable.family_grandfather,R.raw.family_grandfather));
+        words.add(new Word("red","wetetti",R.drawable.color_red,R.raw.color_red));
+        words.add(new Word("green","chokokki",R.drawable.color_green,R.raw.color_green));
+        words.add(new Word("brown","takaakki",R.drawable.color_brown,R.raw.color_brown));
+        words.add(new Word("gray","topoppi",R.drawable.color_gray,R.raw.color_gray));
+        words.add(new Word("black","kululli",R.drawable.color_black,R.raw.color_black));
+        words.add(new Word("white","kelelli",R.drawable.color_white,R.raw.color_white));
+        words.add(new Word("dusty yellow","topiise",R.drawable.color_dusty_yellow,R.raw.color_dusty_yellow));
+        words.add(new Word("musturd yellow","chiwiita",R.drawable.color_mustard_yellow,R.raw.color_mustard_yellow));
 
-        WordAdapter adapter = new WordAdapter (getActivity(), words,R.color.category_family);
+        WordAdapter adapter = new WordAdapter (getActivity(), words,R.color.category_colors);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
         listView.setAdapter(adapter);
 
@@ -83,10 +79,8 @@ public class FamilyFragment extends Fragment {
                 }
             }
         });
-
         return rootView;
     }
-
     @Override
     public void onStop() {
         super.onStop();

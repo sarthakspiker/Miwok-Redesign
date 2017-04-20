@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.miwok_redesign;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
